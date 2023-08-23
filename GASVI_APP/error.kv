@@ -1,0 +1,38 @@
+#:kivy 2.1.0
+#:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
+
+MDScreen:
+
+    md_bg_color: 196/255, 166/255, 254/255, 1
+    name: "error"
+
+    MDCard:
+        md_bg_color: 0, 0, 0, 1 
+        size_hint: .5, .5
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        spacing: 10
+        elevation: 10
+        orientation: 'vertical'
+
+        MDLabel:
+            text: app.error
+            font_size: 40
+            color: 1, 1, 1, 1
+            valign: 'center'
+            halign: 'center'
+            text_size: self.width, self.height
+
+        MDRoundFlatButton:
+            text: "ENTENDIDO"
+            font_size: 50
+            line_color: 0, 0, 1, 1
+            line_width: 3
+            text_color: "blue"
+            size_hint: .425, .25
+            pos_hint: {"center_x": 0.5}
+            on_release: 
+                app.entendido()
+
+        Widget:
+            size_hint_y: None
+            height: 100

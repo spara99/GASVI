@@ -1,0 +1,91 @@
+#:kivy 2.1.0
+
+MDScreen:
+
+    md_bg_color: 196/255, 166/255, 254/255, 1
+    name: "login"
+
+    MDCard:
+        md_bg_color: 196/255, 166/255, 254/255, 1 
+        size_hint: 1, 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        spacing: 10
+        orientation: 'vertical'
+
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": .95}
+            on_release: 
+                root.manager.transition.direction = "right"
+                root.manager.current = "main"
+
+        Image:
+            source: 'logo_gasvi.png'
+            size: self.texture_size
+
+        MDLabel:
+            text: "HOLA DE NUEVO!"
+            font_size: 50
+            valign: 'top'
+            halign: 'center'
+            text_size: self.width, 50
+
+        MDLabel:
+            text: "Introduce tus datos de inicio de sesión:"
+            font_size: 30
+            valign: 'top'
+            halign: 'center'
+            text_size: self.width, self.height
+            
+
+        MDFloatLayout:
+
+            MDTextField:
+                id: user
+                hint_text: "Usuario"
+                hint_text_color_normal: "black"
+                line_color_normal: "black"
+                icon_right: "account"
+                size_hint_x: None
+                cursor_width: '5sp'
+                width: 500
+                font_size: 30
+                pos_hint: {"center_x": 0.5, "center_y": 1.2}
+
+            MDTextField:
+                id: password
+                hint_text: "Contraseña"
+                hint_text_color_normal: "black"
+                line_color_normal: "black"
+                icon_right: "eye-off"
+                size_hint_x: None
+                width: 500
+                font_size: 30
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                password: True
+
+        MDRoundFlatButton:
+            text: "LOGIN"
+            font_size: 50
+            line_color: 0, 0, 0, 1
+            line_width: 3
+            text_color: "black"
+            size_hint: .25, .25
+            pos_hint: {"center_x": 0.5}
+            on_release: 
+                app.logger()
+
+        MDRoundFlatButton:
+            text: "LIMPIAR"
+            size_hint: .25, .25
+            line_color: 0, 0, 0, 1
+            line_width: 3
+            text_color: "black"
+            font_size: 50
+            pos_hint: {"center_x": 0.5}
+            on_release: 
+                app.clearlog()
+
+        Widget:
+            size_hint_y: None
+            height: 200

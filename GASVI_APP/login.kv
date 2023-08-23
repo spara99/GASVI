@@ -1,0 +1,59 @@
+#:kivy 2.1.0
+
+MDScreen:
+
+    md_bg_color: 196/255, 166/255, 254/255, 1
+    name: "main"
+    MDCard:
+        md_bg_color: 196/255, 166/255, 254/255, 1 
+        size_hint: 1, 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        spacing: 15
+        orientation: 'vertical'
+
+        Widget:
+            size_hint_y: None
+            height: 100
+        Image:
+            source: 'logo_gasvi.png'
+            size: self.texture_size
+
+        MDLabel:
+            id: welcome_label
+            text: "BIENVENIDO\nA\nGASVI!"
+            color: 0,0,0,1
+            font_size: 60
+            valign: 'top'
+            halign: 'center'
+            text_size: self.width, self.height
+            height: self.texture_size[1]
+
+        MDRoundFlatButton:
+            text: "LOGIN"
+            size_hint: .25, None
+            font_size: 50
+            line_color: 0, 0, 0, 1
+            line_width: 3
+            text_color: "black"
+            valign: 'top'
+            pos_hint: {"center_x": 0.5, "center_y": 1}
+            on_release: 
+                root.manager.transition.direction = "left"
+                root.manager.current = "login"
+                    
+        MDRoundFlatButton:
+            text: "REGISTRO"
+            size_hint: .25, None
+            font_size: 50
+            line_color: 0, 0, 0, 1
+            line_width: 3
+            text_color: "black"
+            valign: 'top'
+            pos_hint: {"center_x": 0.5}
+            on_release: 
+                root.manager.transition.direction = "left"
+                root.manager.current = "signup"
+
+        Widget:
+            size_hint_y: None
+            height: 300
